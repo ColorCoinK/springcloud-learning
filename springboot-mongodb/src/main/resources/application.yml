@@ -1,0 +1,8 @@
+server:
+  port: 9080
+spring:
+  application:
+    name: enableScheduling
+  data:
+    mongodb:
+      uri: mogodb://127.0.0.1:20000/test

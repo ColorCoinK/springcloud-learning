@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: microservice-rabbitmq
+# 需要在本地安装 RabbitMQ,同时创建用户
+  rabbitmq:
+    host: localhost
+    port: 5762
+    username: spring
+    password: 123456
