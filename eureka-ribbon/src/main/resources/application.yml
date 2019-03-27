@@ -1,0 +1,21 @@
+server:
+  port: 3001
+
+spring:
+  application:
+    name: microservice-consumer-ribbon
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+#    prefer-ip-address: true
+ribbon:
+  MaxAutoRetries: 1                 # 同一实例最大重试次数,不包括首次调用
+  MaxAutoRetriesNextServer: 2       # 重试其他实例的最大重试次数,不包括首次所选的server
+  OkToRetryOnAllOperations: false   # 是否所有操作都进行重试

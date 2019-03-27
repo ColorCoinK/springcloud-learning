@@ -1,0 +1,17 @@
+server:
+  port: 3001
+
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    config:
+      server:
+        git:
+          clone-on-start: true
+          uri: https://github.com/spring-cloud-samples/config-repo
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
