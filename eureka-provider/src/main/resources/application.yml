@@ -1,0 +1,41 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: microsevice-provider-user
+  datasource:                           # 指定数据源;默认H2建表脚本(根目录/schema.sql);默认H2的insert脚本(classpath:data.sql)
+    url: jdbc:h2:mem:~/example-app;     # 指定数据库,默认
+    platform: h2
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: false # 是否启用H2数据库控制台
+      settings:
+        web-allow-others: false         # 允许远程浏览器访问H2 数据库控制台
+        trace: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port} # 自定义微服务的 `instance-id`,当前配置的默认值${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+#    prefer-ip-address: true
+#    lease-expiration-duration-in-seconds: 30
+#    lease-renewal-interval-in-seconds: 10

@@ -1,6 +1,4 @@
-package com.learning.util;
-
-import java.net.InetAddress;
+package com.learning;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,12 +7,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IPUtilsTest {
+public class SpringcloudConfigServerApplicationTests {
 
 	@Test
-	public void getIPTest() {
-		InetAddress address = IPUtils.getLocalHostLANAddress();
-		System.out.println(address.toString());
-
+	public void contextLoads() {
 	}
+
 }
+
