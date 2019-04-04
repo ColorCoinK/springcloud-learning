@@ -12,13 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Title null.java$
  * @ClassName JwtUtil
- * @Description TODO
- * @Author sanss
- * @Date 2019/2/22 13:17
+ * @Description <br/> JSON Web Token 生成、解析、刷新工具类
+ * @Author Dew
+ * @Date
  * @Version 1.0
- */
+ **/
 public class JwtUtil {
 
 	/**
