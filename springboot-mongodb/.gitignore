@@ -16,6 +16,9 @@
 *.iml
 *.ipr
 .mvn
+mvnw
+mvnw.cmd
+README.md
 
 ### NetBeans ###
 /nbproject/private/

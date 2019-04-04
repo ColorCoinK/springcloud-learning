@@ -1,0 +1,12 @@
+xgpush:
+  android:
+    access-id: d617a675b62d0
+    access-key: AH3R5487ADXY
+  ios:
+    access-id: 2200308205
+    access-key: I7873LW8ALNQ
+
+spring:
+  profiles:
+    active:
+      - dev
