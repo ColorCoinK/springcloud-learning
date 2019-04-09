@@ -1,0 +1,31 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: microservice-consumer-feign
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1001/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.ipAddress}:${spring.application.name}:${server.port}
+#    prefer-ip-address: true
+
+feign:
+  hystrix:
+    enabled: true   # 全局启用 Hystrix,默认禁用
+management:
+  endpoint:
+    web:
+      exposure:
+        include: 'hystrix.stream'
+    health:
+      show-details: always
+  ribbon:
+    eager-load:
+      enabled: true
+      clients: microsevice-provider-user
+    MaxAutoRetries: 1                 # 同一实例最大重试次数,不包括首次调用
+    MaxAutoRetriesNextServer: 2       # 重试其他实例的最大重试次数,不包括首次所选的server
+    OkToRetryOnAllOperations: false   # 是否所有操作都进行重试
